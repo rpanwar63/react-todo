@@ -14,8 +14,10 @@ class Header extends Component {
   }
   
   saveToLocal() {
-    const local = this.props.todo;
-    localStorage.setItem("local", JSON.stringify(local));
+    const local = this.props.todo
+    const lastkey = this.props.lastkey
+    localStorage.setItem("local", JSON.stringify(local))
+    localStorage.setItem("lastkey", lastkey)
   }
 
     render() {

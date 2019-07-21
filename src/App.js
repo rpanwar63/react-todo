@@ -8,7 +8,7 @@ class App extends React.Component {
     super()
     this.state = {
         todoList: [],
-        lastKey:0
+        lastKey: 1
     }
     this.addTodoItem = this.addTodoItem.bind(this)
     this.checkTodo = this.checkTodo.bind(this)
@@ -16,8 +16,11 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const todos = JSON.parse( localStorage.getItem( "local" ) );
-    this.setState( { todoList: todos } );
+    const todos = JSON.parse(localStorage.getItem("local"))
+    const lastkey = Number(localStorage.getItem("lastkey"))
+    todos != null && this.setState({todoList: todos})
+    lastkey != null && this.setState({lastKey: lastkey})
+    console.log(this.state.lastKey)
   }
 
   addTodoItem(val) {
@@ -25,9 +28,13 @@ class App extends React.Component {
     let obj = [{"key": id, "value": val, "checked": false}]
     let newTodo = obj.concat(this.state.todoList)
     this.setState({
-      todoList : newTodo,
-      lastKey: id
+      todoList : newTodo
     })
+    this.setState({
+      lastKey : id
+    })
+    console.log(this.state.todoList)
+    console.log(this.state.lastKey)
   }
   
   checkTodo(key,checked,value) {
@@ -56,7 +63,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <Header todo={this.state.todoList} deleteTodo={this.deleteTodo}/>
+        <Header todo={this.state.todoList} deleteTodo={this.deleteTodo} lastkey={this.state.lastKey}/>
         <AddTodo addTodoItem={this.addTodoItem}/>
         {this.state.todoList.length ? <ShowTodo todo={this.state.todoList} checkTodo={this.checkTodo} deleteTodo={this.deleteTodo}/> : <p>No todos</p>}
       </div>
