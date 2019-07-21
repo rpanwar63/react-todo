@@ -1,0 +1,34 @@
+.inputContainer {
+    margin: auto;
+    margin-top:2rem;
+    width: 96%;
+    position: relative;
+}
+.inputContainer  input {
+    width: 100%;
+    margin: auto;
+    height: 40px;
+    border: none;
+    border-radius: 25px;
+    padding-left: 15px;
+    font-size: 1.2rem;
+    box-shadow: 0 0 3px #d4d4d4, 0 2px 3px #d4d4d4;
+    box-sizing : border-box;
+}
+.inputContainer  input:focus {
+    outline:0;
+    box-shadow: 0 0 3px #d4d4d4;
+    transition: box-shadow 0.1s;
+}
+.inputContainer  i {
+    position: absolute;
+    width:30px;
+    max-height:40px;
+    padding: 8px;
+    border-radius:50%;
+    font-size: 1.5rem;
+    top:0;
+    right:0;
+    color: #444444;
+    background: #ffffff;
+}

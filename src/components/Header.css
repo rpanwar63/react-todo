@@ -1,0 +1,43 @@
+nav {
+    width:100%;
+    padding-top: 0.5rem; 
+    display: grid;
+    grid-template-columns: 70% 15% 15%;
+    grid-template-areas: 'logo save delete';
+}
+nav span {
+    grid-area: logo;
+    padding-left: 1rem;
+    font-size: 1.5rem;
+    line-height:2rem;
+}
+nav i {
+    align-self: center;
+    font-size: 1.5rem;
+    line-height:2rem;
+}
+nav .fa-heart {
+    grid-area: save;
+    color: red;
+}
+nav .fa-trash-alt{
+    grid-area: delete;
+    color: darkslategrey;
+}
+@media screen and (min-width: 767px) {
+    nav {
+        width:100%;
+        display: grid;
+        grid-template-columns: 80% 10% 10%;
+        grid-template-areas: 'logo save delete';
+    }
+    nav span {
+        padding-left: 1rem;
+        font-size: 2rem;
+        line-height:3rem;
+    }
+    nav i {
+        font-size: 2rem;
+        line-height:3rem;
+    }
+}
